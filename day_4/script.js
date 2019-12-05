@@ -11,8 +11,22 @@ function range(start, end) {
   return arr;
 }
 
+// function hasDoubleDigit(number) {
+//   return !!number.toString().match(/([0-9])\1{1,}/);
+// }
+
 function hasDoubleDigit(number) {
-  return !!number.toString().match(/([0-9])\1{1,}/);
+  const regexMatchArr = number.toString().match(/([0-9])\1{1,}/);
+  if (!regexMatchArr) return false;
+
+  let matchesCriteria = false;
+  for (let i = 0; i < regexMatchArr.length; i++) {
+    if (regexMatchArr[i].length == 2) {
+      matchesCriteria = true;
+      break;
+    }
+  }
+  return matchesCriteria;
 }
 
 function doesNotDecrease(number) {
@@ -48,7 +62,7 @@ run(digitArr);
 // console.log([CONFIG.min, ...CONFIG.max]);
 
 console.log(hasDoubleDigit(12345));
-console.log(hasDoubleDigit(112345));
+console.log(hasDoubleDigit(111211345));
 console.log(doesNotDecrease(12323));
 console.log(doesNotDecrease(12356));
 console.log(doesNotDecrease(123561));
