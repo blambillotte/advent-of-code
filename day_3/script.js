@@ -121,6 +121,7 @@ function findClosestIntersection(intersections) {
     return Math.abs(el.x) + Math.abs(el.y);
   });
 
+  // skip index 0, which is the shared starting point
   const distance = distances.sort((a, b) => a - b)[1];
   console.log("Shortest Distance:", distance);
   console.timeEnd("Calculating");
