@@ -11,19 +11,20 @@ function range(start, end) {
   return arr;
 }
 
+// Part 1 solution
 // function hasDoubleDigit(number) {
-//   return !!number.toString().match(/([0-9])\1{1,}/);
+//   return !!number.toString().match(/([0-9])\1{1,}/g);
 // }
 
+// Part 2 solution
 function hasDoubleDigit(number) {
-  const regexMatchArr = number.toString().match(/([0-9])\1{1,}/);
+  const regexMatchArr = number.toString().match(/([0-9])\1{1,}/g);
   if (!regexMatchArr) return false;
 
   let matchesCriteria = false;
   for (let i = 0; i < regexMatchArr.length; i++) {
     if (regexMatchArr[i].length == 2) {
       matchesCriteria = true;
-      break;
     }
   }
   return matchesCriteria;
@@ -42,6 +43,7 @@ function doesNotDecrease(number) {
 }
 
 function run(passwords) {
+  console.time("Calculation Time");
   let matchingResults = [];
   let matchingResultCount = 0;
 
@@ -52,17 +54,17 @@ function run(passwords) {
       matchingResultCount++;
     }
   }
-  console.log(matchingResults);
-  console.log(matchingResultCount);
+  console.table(matchingResults);
+  console.log("Final Answer:", matchingResultCount);
+  console.timeEnd("Calculation Time");
 }
 
 const digitArr = range(CONFIG.min, CONFIG.max);
 run(digitArr);
 
-// console.log([CONFIG.min, ...CONFIG.max]);
-
-console.log(hasDoubleDigit(12345));
-console.log(hasDoubleDigit(111211345));
-console.log(doesNotDecrease(12323));
-console.log(doesNotDecrease(12356));
-console.log(doesNotDecrease(123561));
+// Tests
+// console.log(hasDoubleDigit(12345));
+// console.log(hasDoubleDigit(111211345));
+// console.log(doesNotDecrease(12323));
+// console.log(doesNotDecrease(12356));
+// console.log(doesNotDecrease(123561));
