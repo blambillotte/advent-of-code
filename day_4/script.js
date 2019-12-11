@@ -43,7 +43,6 @@ function doesNotDecrease(number) {
 }
 
 function run(passwords) {
-  console.time("Calculation Time");
   let matchingResults = [];
   let matchingResultCount = 0;
 
@@ -59,6 +58,7 @@ function run(passwords) {
   console.timeEnd("Calculation Time");
 }
 
+console.time("Calculation Time");
 const digitArr = range(CONFIG.min, CONFIG.max);
 run(digitArr);
 
