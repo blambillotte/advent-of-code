@@ -69,7 +69,6 @@ for (let currentDay = 0; currentDay < DAYS_TO_RUN; currentDay++) {
 console.log(ageMap);
 
 const part2Result = Object.entries(ageMap).reduce((acc, [_k, numFish]) => {
-  console.log(acc, numFish);
   return acc + numFish;
 }, 0);
 
